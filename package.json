@@ -17,13 +17,7 @@
       "properties": {
         "jupyterKiller.serverUrl": {
           "type": "string",
-          "default": "http://localhost:8888",
-          "description": "URL of the Jupyter server (e.g., http://localhost:8888)."
-        },
-        "jupyterKiller.token": {
-          "type": "string",
-          "default": "",
-          "description": "Access token for the Jupyter server (if required)."
+          "description": "URL of the Jupyter server including session id and token as query string if required (e.g., http://localhost:8888/?token=TOKEN)"
         }
       }
     }
