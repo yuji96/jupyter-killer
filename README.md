@@ -10,4 +10,4 @@ Specifically, it detects and kills sessions on the Jupyter server where `"connec
 
 ## Release Notes
 
-- 0.0.1: Initial release
+- 0.0.2: Initial release

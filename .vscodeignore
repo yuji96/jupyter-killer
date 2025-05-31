@@ -1,3 +1,7 @@
+memo
+tmp
+pnpm-lock.yaml
+
 .vscode/**
 .vscode-test/**
 src/**

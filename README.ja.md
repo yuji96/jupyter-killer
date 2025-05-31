@@ -10,4 +10,4 @@ VS CodeでJupyterノートブックのタブを閉じたとき、不要になっ
 
 ## Release Notes
 
-- 0.0.1: Initial release
+- 0.0.2: Initial release
