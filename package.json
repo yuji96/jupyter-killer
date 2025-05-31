@@ -1,23 +1,32 @@
 {
   "name": "jupyter-killer",
-  "displayName": "jupyter-killer",
-  "description": "",
+  "displayName": "Jupyter Killer",
+  "description": "Kills Jupyter sessions when .ipynb tabs are closed and lists active kernels.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.100.0"
   },
-  "categories": [
-    "Other"
+  "activationEvents": [
+    "onLanguage:jupyter",
+    "onNotebook:jupyter-notebook"
   ],
-  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "jupyter-killer.helloWorld",
-        "title": "Hello World"
+    "configuration": {
+      "title": "Jupyter Killer",
+      "properties": {
+        "jupyterKiller.serverUrl": {
+          "type": "string",
+          "default": "http://localhost:8888",
+          "description": "URL of the Jupyter server (e.g., http://localhost:8888)."
+        },
+        "jupyterKiller.token": {
+          "type": "string",
+          "default": "",
+          "description": "Access token for the Jupyter server (if required)."
+        }
       }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",
@@ -36,6 +45,10 @@
     "eslint": "^9.25.1",
     "typescript": "^5.8.3",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "@types/axios": "^0.14.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
   }
 }
