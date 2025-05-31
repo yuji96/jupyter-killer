@@ -1,8 +1,12 @@
 {
   "name": "jupyter-killer",
   "displayName": "Jupyter Killer",
-  "description": "Kills Jupyter sessions when .ipynb tabs are closed and lists active kernels.",
+  "description": "This VS Code extension automatically cleans up unused sessions on your Jupyter server.",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuji96/jupyter-killer.git"
+  },
   "engines": {
     "vscode": "^1.100.0"
   },
@@ -17,7 +21,7 @@
       "properties": {
         "jupyterKiller.serverUrl": {
           "type": "string",
-          "description": "URL of the Jupyter server including session id and token as query string if required (e.g., http://localhost:8888/?token=TOKEN)"
+          "description": "URL of your Jupyter server. For example: http://localhost:8888/?token=YOUR_TOKEN."
         }
       }
     }
@@ -31,18 +35,15 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.100.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/vscode": "^1.100.0",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
-    "eslint": "^9.25.1",
-    "typescript": "^5.8.3",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.5.2",
-    "@types/axios": "^0.14.0"
-  },
-  "dependencies": {
-    "axios": "^1.6.0"
+    "@vscode/vsce": "^3.4.2",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3"
   }
 }
