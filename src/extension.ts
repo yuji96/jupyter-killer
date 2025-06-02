@@ -15,14 +15,14 @@ export function activate(context: vscode.ExtensionContext) {
 
 function getJupyterServerUrl(): string | undefined {
   return vscode.workspace
-    .getConfiguration("jupyterKiller")
+    .getConfiguration("jupyterSessionKiller")
     .get<string>("serverUrl");
 }
 
 async function killAllZeroConnectionSessions(): Promise<void> {
   const serverUrl = getJupyterServerUrl();
   if (!serverUrl) {
-    const msg = `Jupyter Server URL is not set. Please configure it in settings (jupyterKiller.serverUrl). Cannot kill sessions.`;
+    const msg = `Jupyter Server URL is not set. Please configure it in settings (jupyterSessionKiller.serverUrl). Cannot kill sessions.`;
     console.error(msg);
     vscode.window.showErrorMessage(msg);
     return;

@@ -1,9 +1,9 @@
 {
   "name": "jupyter-killer",
-  "displayName": "Jupyter Killer",
+  "displayName": "Jupyter Session Killer",
   "publisher": "yuji96",
   "description": "This VS Code extension automatically cleans up unused sessions on your Jupyter server.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/yuji96/jupyter-killer.git"
@@ -21,9 +21,9 @@
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
-      "title": "Jupyter Killer",
+      "title": "Jupyter Session Killer",
       "properties": {
-        "jupyterKiller.serverUrl": {
+        "jupyterSessionKiller.serverUrl": {
           "type": "string",
           "description": "URL of your Jupyter server. For example: http://localhost:8888/?token=YOUR_TOKEN."
         }
