@@ -11,6 +11,15 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
   context.subscriptions.push(disposableTabClose);
+
+  // ウィンドウが閉じられたときの処理
+  const disposableWindowClose = vscode.window.onDidCloseTerminal(async () => {
+    console.log(
+      "VS Code window or terminal closed. Checking for orphaned Jupyter sessions..."
+    );
+    await killAllZeroConnectionSessions();
+  });
+  context.subscriptions.push(disposableWindowClose);
 }
 
 function getJupyterServerUrl(): string | undefined {
