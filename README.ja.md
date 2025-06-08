@@ -10,5 +10,8 @@ VS CodeでJupyterノートブックのタブを閉じたとき、不要になっ
 
 ## Release Notes
 
+- 0.0.4: 
+  - Added a feature to kill sessions when closing the window.
+  - Added a feature to prompt the user to enter the correct server URL when an error occurs.
 - 0.0.3: Renamed the display to “Jupyter Session Killer” (out of respect for Jupyter).
 - 0.0.2: Initial release

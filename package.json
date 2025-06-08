@@ -3,7 +3,7 @@
   "displayName": "Jupyter Session Killer",
   "publisher": "yuji96",
   "description": "This VS Code extension automatically cleans up unused sessions on your Jupyter server.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/yuji96/jupyter-killer.git"
