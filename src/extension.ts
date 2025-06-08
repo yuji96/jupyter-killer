@@ -19,12 +19,34 @@ function getJupyterServerUrl(): string | undefined {
     .get<string>("serverUrl");
 }
 
+async function promptAndUpdateJupyterServerUrl(errorMsg?: string) {
+  const input = await vscode.window.showInputBox({
+    prompt: errorMsg
+      ? `${errorMsg}\nPlease enter the correct Jupyter server URL (e.g. http://localhost:8888/?token=YOUR_TOKEN):`
+      : "Please enter the Jupyter server URL (e.g. http://localhost:8888/?token=YOUR_TOKEN):",
+    ignoreFocusOut: true,
+    placeHolder: "http://localhost:8888/?token=YOUR_TOKEN",
+    value: getJupyterServerUrl() || "",
+  });
+  if (input) {
+    await vscode.workspace
+      .getConfiguration("jupyterSessionKiller")
+      .update("serverUrl", input, vscode.ConfigurationTarget.Global);
+    return true;
+  }
+  return false;
+}
+
 async function killAllZeroConnectionSessions(): Promise<void> {
   const serverUrl = getJupyterServerUrl();
   if (!serverUrl) {
     const msg = `Jupyter Server URL is not set. Please configure it in settings (jupyterSessionKiller.serverUrl). Cannot kill sessions.`;
     console.error(msg);
-    vscode.window.showErrorMessage(msg);
+    // 入力欄を表示して再試行
+    const updated = await promptAndUpdateJupyterServerUrl(msg);
+    if (updated) {
+      await killAllZeroConnectionSessions();
+    }
     return;
   }
 
